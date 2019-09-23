@@ -7,14 +7,46 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Document</title>
   <script src="./lib/vue-2.4.0.js"></script>
+  <style type="text/css">
+    .v-enter,
+    .v-leave-to {
+      opacity: 0;
+      transform: translateX(150px);
+    }
+
+    .v-enter-active,
+    .v-leave-active{
+      transition: all 0.8s ease;
+    }
+
+    .my-enter,
+    .my-leave-to {
+      opacity: 0;
+      transform: translateX(150px);
+    }
+
+    .my-enter-active,
+    .my-leave-active{
+      transition: all 0.8s ease;
+    }
+  </style>
 </head>
 
 <body>
   <div id="app">
     <!-- 方法一 -->
-    <!-- <input type="button" value="toggle" v-on:click="flag=!flag"> -->
-    <input type="button" value="toggle" @click="toggle">
-    <h3 v-if="flag">这是一个h3</h3>
+    <input type="button" value="toggle" v-on:click="flag=!flag">
+    <!-- <input type="button" value="toggle" @click="toggle"> -->
+    <transition>
+      <h3 v-if="flag">这是一个h3</h3>
+    </transition>
+
+    <!-- 自定义v-前缀 -->
+    <input type="button" value="toggle" v-on:click="flag2=!flag2">
+    <!-- <input type="button" value="toggle" @click="toggle"> -->
+    <transition name="my">
+      <h6 v-if="flag2">这是一个h6</h6>
+    </transition>
   </div> 
 
   <script>
@@ -22,13 +54,14 @@
   var vm = new Vue({
     el: '#app',
     data: {
-      flag: true
+      flag: true,
+      flag2: true
     },
     methods: {
       // 方法二
-      toggle() {
-        this.flag = !this.flag
-      }
+      // toggle() {
+      //   this.flag = !this.flag
+      // }
     }
   })
   </script>

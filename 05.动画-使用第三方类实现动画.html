@@ -15,7 +15,7 @@
   <div id="app">
     <input type="button" value="toggle" @click="flag=!flag">
     <!-- 需求： 点击按钮，让 h3 显示，再点击，让 h3 隐藏 -->
-    <!-- <transition enter-active-class="animated bounceIn" leave-active-class="animated bounceOut">
+ <!--    <transition enter-active-class="animated bounceIn" leave-active-class="animated bounceOut">
       <h3 v-if="flag">这是一个H3</h3>
     </transition> -->
 
@@ -28,7 +28,7 @@
     <transition 
     enter-active-class="bounceIn" 
     leave-active-class="bounceOut" 
-    :duration="{ enter: 200, leave: 400 }">
+    :duration="{ enter: 600, leave: 900 }">
       <h3 v-if="flag" class="animated">这是一个H3</h3>
     </transition> 
   </div>
